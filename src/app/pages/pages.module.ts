@@ -1,34 +1,34 @@
 import { NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 
-import { PAGES_ROUTES } from './pages.routes';
+//import { PAGES_ROUTES } from './pages.routes';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { PagesComponent } from '../pages/pages.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { CommonModule } from '@angular/common';
-import { PistasComponent } from './pistas/pistas.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
     declarations: [
-        PagesComponent,
-        PistasComponent,
-        InicioComponent
+        InicioComponent,
     ],
     exports: [
-        PagesComponent,
-        PistasComponent,
-        InicioComponent
+        InicioComponent,
     ],
     imports: [
         CommonModule,
         SharedModule,
-        PAGES_ROUTES,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+    providers: [
+        {provide: APP_BASE_HREF, useValue : '/' }
     ]
 })
 

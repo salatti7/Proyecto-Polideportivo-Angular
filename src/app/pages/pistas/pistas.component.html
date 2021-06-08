@@ -4,63 +4,36 @@
         <div class="col-md-7 text-left">
           <h2 class="section-title mb-3">Pistas</h2>
         </div>
-        <div class="col-md-5 text-left text-md-right">
-          <div class="custom-nav1">
-            <a href="#" class="custom-prev1">Anterior</a><span class="mx-3">/</span><a href="#" class="custom-next1">Siguiente</a>
-          </div>
-        </div>
       </div>
 
-      <div class="owl-carousel nonloop-block-13 mb-5">
-
-        <div class="property">
-          <a href="property-single.html">
-            <img src="assets/images/pistafutbol.jpg" alt="Image" class="img-fluid" style="height: 200px;">
-          </a>
-          <div class="prop-details p-3">
-            <div><strong class="price">40€ hora</strong></div>
-            <div class="mb-2 d-flex justify-content-between">
+        <div class="card-deck">
+          <div class="card">
+            <img class="card-img-top" src="{{pistas[0].imagen}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{pistas[0].deporte}}</h5>
+              <p class="card-text">{{pistas[0].descripcion}}</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="{{pistas[1].imagen}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{pistas[1].deporte}}</h5>
+              <p class="card-text">{{pistas[1].descripcion}}</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="{{pistas[2].imagen}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{pistas[2].deporte}}</h5>
+              <p class="card-text">{{pistas[2].descripcion}}</p>
             </div>
           </div>
         </div>
-
-        <div class="property">
-          <a href="property-single.html">
-            <img src="assets/images/pistatenis2.jpg" alt="Image" class="img-fluid" style="height: 200px;">
-          </a>
-          <div class="prop-details p-3">
-            <div><strong class="price">12€ hora</strong></div>
-            <div class="mb-2 d-flex justify-content-between">
-            </div>
-          </div>
-        </div>
-
-        <div class="property">
-          <a href="property-single.html">
-            <img src="assets/images/pistapadel.jpg" alt="Image" class="img-fluid" style="height: 200px;">
-          </a>
-          <div class="prop-details p-3">
-            <div><strong class="price">18€ hora y media</strong></div>
-            <div class="mb-2 d-flex justify-content-between">
-            </div>
-          </div>
-        </div>
-
-        <div class="property">
-          <a href="property-single.html">
-            <img src="assets/images/pistapiscina.jpg" alt="Image" class="img-fluid" style="height: 200px;">
-          </a>
-          <div class="prop-details p-3">
-            <div><strong class="price">10€ hora</strong></div>
-            <div class="mb-2 d-flex justify-content-between">
-            </div>
-          </div>
-        </div>
-
-      </div>
+        <br>
+        <br>
       <div class="row justify-content-center">
         <div class="col-md-4">
-          <a href="listings.html" class="btn btn-primary btn-block">View All Property Listings</a>
+          <a (click)="verTodasPistas()" class="btn btn-primary btn-block" style="color: white;">Ver todas las pistas</a>
         </div>
       </div>
     </div>

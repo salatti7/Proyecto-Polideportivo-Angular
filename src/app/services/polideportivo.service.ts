@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Pista } from '../interfaces/interfaces';
+import { Pista, Reserva } from '../interfaces/interfaces';
 import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ import { tap } from 'rxjs/operators';
 export class PolideportivoService {
 
   private pistas: Pista[] = [];
-  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+  private reserva: Reserva;
+  baseurl = 'http://localhost:8000/';
+  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor( private http: HttpClient ) {
   }
@@ -23,4 +26,18 @@ export class PolideportivoService {
         )
     );
   }
+
+  getAllPistas(): Observable<any>{
+    return this.http.get(this.baseurl + '/pista/', 
+    {headers :this.httpHeaders});
+  }
+
+  reservarPista( reserva: Reserva){
+    let url = 'http://localhost:8000/reserva/';
+
+    return this.http.post(
+      url,
+      reserva
+    )
+  };
 }

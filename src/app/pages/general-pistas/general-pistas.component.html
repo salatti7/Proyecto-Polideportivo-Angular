@@ -1,0 +1,69 @@
+<div class="site-section" id="properties-section">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-md-7 text-left">
+        <h2 class="section-title mb-3">Todas las pistas</h2>
+      </div>
+    </div>
+
+      <div class="card-deck mt-3" *ngFor="let pista of pistas">
+        <form style="width: 100%;" #data="ngForm" (ngSubmit)="reservarPista(data.value)">
+          <div class="card">
+            <div class="row">
+              <div class="col-6">
+                <h2 class="card-title" style="color: orange; width: 40%; margin-top: 1em; margin-left: 1em;">{{ pista.deporte }}</h2>
+                <img class="card-img-top" src="{{ pista.imagen }}" style="width: 80%; margin-top: 2em; margin-left: 2em;" alt="Card image cap">
+                <div class="card-body" style="width: 82%; margin-top: 2em; margin-left: 2em;">
+                  <p class="card-text" style="text-align: justify">{{ pista.descripcion }}</p>
+                  <p class="card-text">
+                    Precio:
+                    <input readonly [(ngModel)]="pista.precio" type="number" value="{{pista.precio}}" name="precio" id="precio" style="width: 15%;">€
+                    <br>
+                    <b>Horario matinal 10:00-13:00 suplemento de 7€ + {{ pista.precio }}€</b>
+                    <br>
+                    <b>Horario nocturno 16:00-23:00 suplemento de 11€ + {{ pista.precio }}€</b>
+                  </p>
+                  Seleccione fecha:
+                  <br>
+                  <input type="date" [(ngModel)]="fecha" name="fecha">
+                  <br>
+                  <br>
+                  Seleccione hora:
+                  <select class="form-select" [(ngModel)]="hora" name="hora">
+                      <option value="10:00">10:00</option>
+                      <option value="11:00">11:00</option>
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                      <option value="17:00">17:00</option>
+                      <option value="18:00">18:00</option>
+                      <option value="19:00">19:00</option>
+                      <option value="20:00">20:00</option>
+                      <option value="21:00">21:00</option>
+                      <option value="22:00">22:00</option>
+                      <option value="23:00">23:00</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6 mt-5">
+                <b><label class="form-inline">Nombre: </label></b>
+                <input class="form-inline" type="text" name="nombre" id="nombre" ngModel>
+                <b><label class="form-inline">Apellido: </label></b>
+                <input class="form-inline" type="text" name="apellido" id="apellido" ngModel>
+                <b><label class="form-inline">Email: </label></b>
+                <input class="form-inline" type="text" name="email" id="email" ngModel>
+                <b><label class="form-inline">DNI: </label></b>
+                <input class="form-inline" type="text" name="dni" id="id" ngModel>
+                
+                <div class="row justify-content-center col-5 mt-5">
+                  <div class="col-md-12">
+                    <button class="btn btn-primary btn-block" type="submit" id="submit" name="submit">Reservar</button>
+                  </div>
+              </div>
+              </div>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
